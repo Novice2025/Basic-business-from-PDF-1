@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daby Method - Business English</title>
+    <!-- Adicionando a fonte Inter e o Tailwind CSS para um design responsivo e moderno -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilos customizados para a experiência Netflix/Burger King */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #141414; /* Cor de fundo escura, típica da Netflix */
+        }
+
+        .netflix-background {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 2rem 1rem;
+        }
+        
+        .burger-king-palette-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, #D7281D, #FFDA00, #001C69);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.2);
+        }
+
+        .scottish-blue {
+            color: #005EB8;
+        }
+
+        .highlight-text {
+            background: linear-gradient(45deg, #005EB8, #FFFFFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+
+        .section-title {
+            color: #FFDA00;
+            font-weight: 700;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            animation: fadeInAnimation 1s forwards;
+        }
+
+        @keyframes fadeInAnimation {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Efeito de hover nos botões */
+        .btn-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .audio-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #FFDA00;
+            transition: color 0.2s;
+        }
+        .audio-button:hover {
+            color: #FFFFFF;
+        }
+        
+        /* Estilos para o fluxo de ensino */
+        .flow-step {
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            background: #2D2D2D;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .flow-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .flow-step-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        .message-box {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .message-box.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .message-box.success {
+            background-color: #1a7344;
+            color: white;
+        }
+
+        .message-box.error {
+            background-color: #d32f2f;
+            color: white;
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+
+    <!-- Container principal com o fundo estilo Netflix -->
+    <div class="netflix-background">
+        <!-- Título principal no topo -->
+        <div class="absolute top-4 left-4 sm:top-6 sm:left-6">
+            <h1 class="text-xl sm:text-2xl font-bold text-white">By Daby Method</h1>
+        </div>
+
+        <!-- Seção do título principal -->
+        <header class="text-center mb-8 fade-in" style="animation-delay: 0.5s;">
+            <h1 class="burger-king-palette-title text-4xl sm:text-5xl mt-2">Business English - Para Brasileiros</h1>
+        </header>
+
+        <!-- Container do conteúdo principal com espaçamento e cor de fundo suave -->
+        <main class="w-full max-w-4xl p-6 sm:p-10 bg-gray-800 rounded-xl shadow-lg fade-in" style="animation-delay: 1s;">
+            
+            <!-- Seção de introdução e o fluxo de ensino -->
+            <section class="mb-10">
+                <p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+                    A Daby Method foca em **blocos curtos de 3-5 palavras**. Nosso objetivo é fazer com que você construa frases úteis em inglês, sem travar, especialmente em situações de negócios como reuniões, apresentações e discussões.
+                </p>
+
+                <h2 class="section-title text-xl mb-4">🧠 Como usar nosso fluxo de ensino:</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="flow-step">
+                       <div class="flex items-center mb-2">
+                          <span class="flow-step-icon">💡</span>
+                          <p class="font-bold text-lg text-yellow-400">Situação Real</p>
+                       </div>
+                       <p class="text-sm text-gray-300">Primeiro, pense em uma situação de negócios, como "iniciar uma reunião".</p>
+                   </div>
+                   <div class="flow-step">
+                       <div class="flex items-center mb-2">
+                          <span class="flow-step-icon">🗣️</span>
+                          <p class="font-bold text-lg text-yellow-400">Memorize o Bloco</p>
+                       </div>
+                       <p class="text-sm text-gray-300">Em seguida, você memoriza e repete um bloco-chave para essa situação.</p>
+                   </div>
+                   <div class="flow-step">
+                       <div class="flex items-center mb-2">
+                          <span class="flow-step-icon">🧩</span>
+                          <p class="font-bold text-lg text-yellow-400">Combine e Forme</p>
+                       </div>
+                       <p class="text-sm text-gray-300">Combine o bloco com outras palavras para formar uma frase completa.</p>
+                   </div>
+                   <div class="flow-step">
+                       <div class="flex items-center mb-2">
+                          <span class="flow-step-icon">🚀</span>
+                          <p class="font-bold text-lg text-yellow-400">Aplique e Improvise</p>
+                       </div>
+                       <p class="text-sm text-gray-300">Use os blocos memorizados para simular e improvisar em um diálogo.</p>
+                   </div>
+               </div>
+            </section>
+
+            <!-- Seção de vocabulário 1 - Iniciar uma conversa -->
+            <section class="mb-8">
+                <h2 class="section-title text-xl mb-4">Vocabulary 1: Iniciar uma conversa</h2>
+                <div class="bg-gray-700 p-4 rounded-lg">
+                    <div class="flex items-center space-x-2">
+                        <p class="text-lg text-white mb-2">Bloco: "To get started, I'd like to…"</p>
+                        <button class="audio-button" onclick="playAudio('Say in a clear and professional tone: To get started, I would like to…', this)">
+                           <svg id="play-icon-1" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                           </svg>
+                           <svg id="loading-icon-1" class="animate-spin w-6 h-6 text-yellow-400 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-lg text-white mb-2">Tradução: <span class="text-yellow-400">Para começar, eu gostaria de…</span></p>
+                    <p class="text-gray-300 text-sm italic">Como usar:</p>
+                    <ul class="list-disc list-inside text-gray-300 text-sm ml-4 space-y-2">
+                        <li>
+                            <span class="font-bold text-red-400">Situação:</span> Abrir uma reunião ou introduzir um novo tópico.
+                        </li>
+                        <li>
+                            <div class="flex items-center space-x-2">
+                                <span class="font-bold text-green-400">Exemplo 1:</span> "To get started, I'd like to **share some data**."
+                                <button class="audio-button" onclick="playAudio('Say in a clear and professional tone: To get started, I would like to share some data.', this)">
+                                    <svg id="play-icon-2" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                                   </svg>
+                                   <svg id="loading-icon-2" class="animate-spin w-6 h-6 text-yellow-400 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </li>
+                        <li>
+                           <div class="flex items-center space-x-2">
+                                <span class="font-bold text-green-400">Exemplo 2:</span> "To get started, I'd like to **talk about the new project**."
+                                <button class="audio-button" onclick="playAudio('Say in a clear and professional tone: To get started, I would like to talk about the new project.', this)">
+                                    <svg id="play-icon-3" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                                   </svg>
+                                   <svg id="loading-icon-3" class="animate-spin w-6 h-6 text-yellow-400 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Seção de vocabulário 2 - Expressar uma opinião -->
+            <section class="mb-8">
+                <h2 class="section-title text-xl mb-4">Vocabulary 2: Expressar uma opinião profissional</h2>
+                <div class="bg-gray-700 p-4 rounded-lg">
+                    <div class="flex items-center space-x-2">
+                        <p class="text-lg text-white mb-2">Bloco: "From my perspective…"</p>
+                        <button class="audio-button" onclick="playAudio('Say in a clear and professional tone: From my perspective…', this)">
+                           <svg id="play-icon-4" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                           </svg>
+                           <svg id="loading-icon-4" class="animate-spin w-6 h-6 text-yellow-400 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-lg text-white mb-2">Tradução: <span class="text-yellow-400">Da minha perspectiva…</span></p>
+                    <p class="text-gray-300 text-sm italic">Como usar:</p>
+                    <ul class="list-disc list-inside text-gray-300 text-sm ml-4 space-y-2">
+                        <li>
+                            <span class="font-bold text-red-400">Situação:</span> Apresentar seu ponto de vista de forma clara e profissional.
+                        </li>
+                        <li>
+                            <div class="flex items-center space-x-2">
+                                <span class="font-bold text-green-400">Exemplo 1:</span> "From my perspective, the key issue is **our slow delivery**."
+                                <button class="audio-button" onclick="playAudio('Say in a clear and professional tone: From my perspective, the key issue is our slow delivery.', this)">
+                                    <svg id="play-icon-5" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                                   </svg>
+                                   <svg id="loading-icon-5" class="animate-spin w-6 h-6 text-yellow-400 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </li>
+                        <li>
+                           <div class="flex items-center space-x-2">
+                                <span class="font-bold text-green-400">Exemplo 2:</span> "From my perspective, **we should adjust our strategy**."
+                                <button class="audio-button" onclick="playAudio('Say in a clear and professional tone: From my perspective, we should adjust our strategy.', this)">
+                                    <svg id="play-icon-6" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                                   </svg>
+                                   <svg id="loading-icon-6" class="animate-spin w-6 h-6 text-yellow-400 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Seção de vocabulário 3 - Apresentar resultados -->
+            <section class="mb-8">
+                <h2 class="section-title text-xl mb-4">Vocabulary 3: Apresentar resultados</h2>
+                <div class="bg-gray-700 p-4 rounded-lg">
+                    <div class="flex items-center space-x-2">
+                        <p class="text-lg text-white mb-2">Bloco: "The results show that…"</p>
+                        <button class="audio-button" onclick="playAudio('Say in a clear and professional tone: The results show that…', this)">
+                           <svg id="play-icon-7" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                           </svg>
+                           <svg id="loading-icon-7" class="animate-spin w-6 h-6 text-yellow-400 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-lg text-white mb-2">Tradução: <span class="text-yellow-400">Os resultados mostram que…</span></p>
+                    <p class="text-gray-300 text-sm italic">Como usar:</p>
+                    <ul class="list-disc list-inside text-gray-300 text-sm ml-4 space-y-2">
+                        <li>
+                            <span class="font-bold text-red-400">Situação:</span> Compartilhar dados e métricas de desempenho.
+                        </li>
+                        <li>
+                           <div class="flex items-center space-x-2">
+                                <span class="font-bold text-green-400">Exemplo 1:</span> "The results show that **we exceeded our targets**."
+                                <button class="audio-button" onclick="playAudio('Say in a clear and professional tone: The results show that we exceeded our targets.', this)">
+                                    <svg id="play-icon-8" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                                   </svg>
+                                   <svg id="loading-icon-8" class="animate-spin w-6 h-6 text-yellow-400 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </li>
+                        <li>
+                           <div class="flex items-center space-x-2">
+                                <span class="font-bold text-green-400">Exemplo 2:</span> "The results show that **our market share is growing**."
+                                <button class="audio-button" onclick="playAudio('Say in a clear and professional tone: The results show that our market share is growing.', this)">
+                                    <svg id="play-icon-9" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                                   </svg>
+                                   <svg id="loading-icon-9" class="animate-spin w-6 h-6 text-yellow-400 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Seção de vocabulário 4 - Planejar o futuro -->
+            <section class="mb-8">
+                <h2 class="section-title text-xl mb-4">Vocabulary 4: Planejar os próximos passos</h2>
+                <div class="bg-gray-700 p-4 rounded-lg">
+                    <div class="flex items-center space-x-2">
+                        <p class="text-lg text-white mb-2">Bloco: "Moving forward, we should…"</p>
+                        <button class="audio-button" onclick="playAudio('Say in a clear and professional tone: Moving forward, we should…', this)">
+                           <svg id="play-icon-10" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                           </svg>
+                           <svg id="loading-icon-10" class="animate-spin w-6 h-6 text-yellow-400 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-lg text-white mb-2">Tradução: <span class="text-yellow-400">Seguindo em frente, nós deveríamos…</span></p>
+                    <p class="text-gray-300 text-sm italic">Como usar:</p>
+                    <ul class="list-disc list-inside text-gray-300 text-sm ml-4 space-y-2">
+                        <li>
+                            <span class="font-bold text-red-400">Situação:</span> Concluir uma discussão ou sugerir um plano de ação.
+                        </li>
+                        <li>
+                           <div class="flex items-center space-x-2">
+                                <span class="font-bold text-green-400">Exemplo 1:</span> "Moving forward, we should **focus on brand awareness**."
+                                <button class="audio-button" onclick="playAudio('Say in a clear and professional tone: Moving forward, we should focus on brand awareness.', this)">
+                                    <svg id="play-icon-11" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                                   </svg>
+                                   <svg id="loading-icon-11" class="animate-spin w-6 h-6 text-yellow-400 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </li>
+                        <li>
+                           <div class="flex items-center space-x-2">
+                                <span class="font-bold text-green-400">Exemplo 2:</span> "Moving forward, we should **re-evaluate our goals**."
+                                <button class="audio-button" onclick="playAudio('Say in a clear and professional tone: Moving forward, we should re-evaluate our goals.', this)">
+                                    <svg id="play-icon-12" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                                   </svg>
+                                   <svg id="loading-icon-12" class="animate-spin w-6 h-6 text-yellow-400 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Seção de vocabulário 5 - Termos e Expressões para Negócios -->
+            <section class="mb-8">
+                <h2 class="section-title text-xl mb-4">Vocabulary 5: Termos e Expressões para Negócios</h2>
+                <div class="bg-gray-700 p-4 rounded-lg">
+                    <h3 class="text-lg text-yellow-400 mb-2 font-bold">Uso Correto de Palavras e Preposições</h3>
+                    <p class="text-gray-300 text-sm italic">
+                        Evite usar a palavra "company" desnecessariamente. É mais natural dizer "The + Nome da empresa".
+                    </p>
+                    <ul class="list-disc list-inside text-gray-300 text-sm ml-4 space-y-2 mb-4">
+                        <li>
+                            <span class="font-bold text-red-400">Errado:</span> The ABC company.
+                        </li>
+                        <li>
+                            <span class="font-bold text-green-400">Certo:</span> The ABC Corporation.
+                        </li>
+                    </ul>
+
+                    <p class="text-gray-300 text-sm italic">
+                        Use **"for"** para expressar propósito ou destinatário. Use **"to"** para indicar direção ou para o infinitivo de um verbo.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-300 text-sm ml-4 space-y-2 mb-4">
+                        <li>
+                            <span class="font-bold text-red-400">Errado:</span> to him
+                        </li>
+                        <li>
+                            <span class="font-bold text-green-400">Certo:</span> for him
+                        </li>
+                        <li>
+                            <span class="font-bold text-red-400">Errado:</span> to manager
+                        </li>
+                        <li>
+                            <span class="font-bold text-green-400">Certo:</span> to manage (gerenciar)
+                        </li>
+                    </ul>
+                    
+                    <h3 class="text-lg text-yellow-400 mb-2 font-bold mt-4">Verbos e Expressões Comuns</h3>
+                    <ul class="list-disc list-inside text-gray-300 text-sm ml-4 space-y-2">
+                        <li>
+                            <div class="flex items-center space-x-2">
+                                <span class="font-bold text-green-400">"Me pediu" (traduzido):</span> Use "requested me" ou "asked me".
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center space-x-2">
+                                <span class="font-bold text-green-400">Trabalhando em:</span> Use "working on a project" ou "working on a pitch".
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center space-x-2">
+                                <span class="font-bold text-green-400">Trabalho com vendas:</span> "I work in sales."
+                                <button class="audio-button" onclick="playAudio('Say in a clear and professional tone: I work in sales.', this)">
+                                    <svg id="play-icon-13" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                                    </svg>
+                                    <svg id="loading-icon-13" class="animate-spin w-6 h-6 text-yellow-400 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <h3 class="text-lg text-yellow-400 mb-2 font-bold mt-4">Vocabulário de Vendas e Metas</h3>
+                    <div class="overflow-x-auto my-4">
+                        <table class="w-full text-left table-auto">
+                            <thead class="text-xs text-yellow-400 uppercase">
+                                <tr>
+                                    <th class="px-4 py-2">Expressão em Português</th>
+                                    <th class="px-4 py-2">Expressão em Inglês</th>
+                                    <th class="px-4 py-2">Notas</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm text-gray-300">
+                                <tr class="border-b border-gray-600">
+                                    <td class="px-4 py-2">As vendas no semestre 2</td>
+                                    <td class="px-4 py-2">Sales in quarter 2</td>
+                                    <td class="px-4 py-2">Quarter = trimestre</td>
+                                </tr>
+                                <tr class="border-b border-gray-600">
+                                    <td class="px-4 py-2">As vendas nos últimos anos</td>
+                                    <td class="px-4 py-2">Sales over the past years</td>
+                                    <td class="px-4 py-2">"Past" cria uma ponte entre os anos</td>
+                                </tr>
+                                <tr class="border-b border-gray-600">
+                                    <td class="px-4 py-2">As vendas nos últimos 5 anos</td>
+                                    <td class="px-4 py-2">Sales over the past 5 years</td>
+                                    <td class="px-4 py-2">Conceito similar</td>
+                                </tr>
+                                <tr class="border-b border-gray-600">
+                                    <td class="px-4 py-2">As vendas em 2 anos</td>
+                                    <td class="px-4 py-2">Sales in 2 years (future)</td>
+                                    <td class="px-4 py-2">Refere-se a um período futuro</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-gray-300 text-sm italic mt-4">
+                        Para descrever o resultado das vendas:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-300 text-sm ml-4 space-y-2">
+                        <li>
+                            <div class="flex items-center space-x-2">
+                                <span class="font-bold text-red-400">Péssimas:</span> Sales were a disaster.
+                                <button class="audio-button" onclick="playAudio('Say in a professional tone: Sales were a disaster.', this)">
+                                    <svg id="play-icon-14" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                                    </svg>
+                                    <svg id="loading-icon-14" class="animate-spin w-6 h-6 text-yellow-400 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center space-x-2">
+                                <span class="font-bold text-green-400">Melhores que o esperado:</span> "Sales overperformed" ou "Sales outperformed our expectations".
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <h3 class="text-lg text-yellow-400 mb-2 font-bold mt-4">Pedidos, Pagamentos e Entrega</h3>
+                    <ul class="list-disc list-inside text-gray-300 text-sm ml-4 space-y-2">
+                        <li>
+                            <div class="flex items-center space-x-2">
+                                <span class="font-bold text-green-400">Fazer um pedido:</span> "Place an order" ou "Place a sales order".
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center space-x-2">
+                                <span class="font-bold text-green-400">Termos de pagamento podem mudar:</span> "The payment term is subject to change."
+                                <button class="audio-button" onclick="playAudio('Say in a clear and professional tone: The payment term is subject to change.', this)">
+                                    <svg id="play-icon-15" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                                    </svg>
+                                    <svg id="loading-icon-15" class="animate-spin w-6 h-6 text-yellow-400 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center space-x-2">
+                                <span class="font-bold text-green-400">O frete:</span> "The shipment".
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-center space-x-2">
+                                <span class="font-bold text-green-400">Previsão de entrega:</span> "Your shipment is expected on [date]."
+                                <button class="audio-button" onclick="playAudio('Say in a clear and professional tone: Your shipment is expected on March the second.', this)">
+                                    <svg id="play-icon-16" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                                    </svg>
+                                    <svg id="loading-icon-16" class="animate-spin w-6 h-6 text-yellow-400 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+        
+        <!-- Modal para mensagens -->
+        <div id="message-box" class="message-box"></div>
+
+        <script>
+            // Helper function to show a message box
+            function showMessage(message, type = 'success') {
+                const messageBox = document.getElementById('message-box');
+                messageBox.textContent = message;
+                messageBox.className = `message-box show ${type}`;
+                setTimeout(() => {
+                    messageBox.classList.remove('show');
+                }, 3000);
+            }
+
+            // Helper function to convert base64 to ArrayBuffer
+            function base64ToArrayBuffer(base64) {
+                const binaryString = window.atob(base64);
+                const len = binaryString.length;
+                const bytes = new Uint8Array(len);
+                for (let i = 0; i < len; i++) {
+                    bytes[i] = binaryString.charCodeAt(i);
+                }
+                return bytes.buffer;
+            }
+
+            // Helper function to convert PCM data to a WAV file Blob
+            function pcmToWav(pcm16, sampleRate) {
+                const dataLength = pcm16.length * 2; // 16-bit
+                const buffer = new ArrayBuffer(44 + dataLength);
+                const view = new DataView(buffer);
+
+                // RIFF chunk descriptor
+                writeString(view, 0, 'RIFF');
+                view.setUint32(4, 36 + dataLength, true);
+                writeString(view, 8, 'WAVE');
+
+                // fmt chunk
+                writeString(view, 12, 'fmt ');
+                view.setUint32(16, 16, true);
+                view.setUint16(20, 1, true); // pcm format
+                view.setUint16(22, 1, true); // mono
+                view.setUint32(24, sampleRate, true);
+                view.setUint32(28, sampleRate * 2, true); // byte rate
+                view.setUint16(32, 2, true); // block align
+                view.setUint16(34, 16, true); // bits per sample
+
+                // data chunk
+                writeString(view, 36, 'data');
+                view.setUint32(40, dataLength, true);
+                
+                // write the PCM data
+                let offset = 44;
+                for (let i = 0; i < pcm16.length; i++) {
+                    view.setInt16(offset, pcm16[i], true);
+                    offset += 2;
+                }
+
+                return new Blob([view], { type: 'audio/wav' });
+
+                function writeString(view, offset, string) {
+                    for (let i = 0; i < string.length; i++) {
+                        view.setUint8(offset + i, string.charCodeAt(i));
+                    }
+                }
+            }
+            
+            /**
+             * Plays audio from a given text using the Gemini TTS API.
+             * This function handles API requests, audio conversion, and button state.
+             * @param {string} text The text to be converted to speech.
+             * @param {HTMLElement} button The button element that was clicked.
+             */
+            async function playAudio(text, button) {
+                const playIcon = button.querySelector('svg:not(.animate-spin)');
+                const loadingIcon = button.querySelector('svg.animate-spin');
+
+                if (playIcon) playIcon.classList.add('hidden');
+                if (loadingIcon) loadingIcon.classList.remove('hidden');
+                
+                // Exponential backoff for retries
+                let retries = 0;
+                const maxRetries = 5;
+                let audioPlayed = false;
+
+                while (retries < maxRetries && !audioPlayed) {
+                    try {
+                        const payload = {
+                            contents: [{
+                                parts: [{ text: text }]
+                            }],
+                            generationConfig: {
+                                responseModalities: ["AUDIO"],
+                                speechConfig: {
+                                    voiceConfig: {
+                                        prebuiltVoiceConfig: { voiceName: "Kore" }
+                                    }
+                                }
+                            },
+                            model: "gemini-2.5-flash-preview-tts"
+                        };
+                        const apiKey = "";
+                        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
+
+                        const response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+                        
+                        if (!response.ok) {
+                             throw new Error(`API call failed with status: ${response.status}`);
+                        }
+
+                        const result = await response.json();
+                        const part = result?.candidates?.[0]?.content?.parts?.[0];
+                        const audioData = part?.inlineData?.data;
+                        const mimeType = part?.inlineData?.mimeType;
+
+                        if (audioData && mimeType && mimeType.startsWith("audio/")) {
+                            const sampleRate = parseInt(mimeType.match(/rate=(\d+)/)[1], 10);
+                            const pcmData = base64ToArrayBuffer(audioData);
+                            const pcm16 = new Int16Array(pcmData);
+                            const wavBlob = pcmToWav(pcm16, sampleRate);
+                            const audioUrl = URL.createObjectURL(wavBlob);
+                            
+                            const audio = new Audio(audioUrl);
+                            audio.play();
+                            audio.addEventListener('ended', () => {
+                                URL.revokeObjectURL(audioUrl); // Clean up the object URL
+                            });
+                            audioPlayed = true; // Mark as successful
+                        } else {
+                            console.error('API response is missing audio data.');
+                            throw new Error('API response is missing audio data.');
+                        }
+                    } catch (error) {
+                        console.error('Error playing audio:', error);
+                        retries++;
+                        if (retries < maxRetries) {
+                            const delay = Math.pow(2, retries) * 1000;
+                            await new Promise(res => setTimeout(res, delay));
+                        } else {
+                            showMessage('Failed to play audio after several retries.', 'error');
+                        }
+                    }
+                }
+
+                if (loadingIcon) loadingIcon.classList.add('hidden');
+                if (playIcon) playIcon.classList.remove('hidden');
+            }
+        </script>
+</body>
+</html>
